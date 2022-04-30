@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [cars, setCars]=useState([]);
+    
     useEffect(()=>{
         axios.get('http://localhost:5000/cars')
         .then(response=>{
@@ -41,6 +42,10 @@ const Home = () => {
                     })
                 }
 
+            </div>
+
+            <div>
+                <button onClick={()=>navigate('/item-details')}>Manage Inventory</button>
             </div>
         </div>
     );

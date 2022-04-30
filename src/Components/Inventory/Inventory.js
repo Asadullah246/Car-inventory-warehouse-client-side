@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import "./Inventory.css"
 
 const Inventory = () => {
-    const [car, setCar] = useState({})
+    const [car, setCar] = useState([])
     const [quantity, setQuantity]=useState(0)
     const [error, setError]=useState('')
     const [numberError, setNumberError]=useState('')
@@ -19,7 +19,7 @@ const Inventory = () => {
             .catch(error => {
                 console.log(error);
             })
-    }, [id ])
+    }, [id, setCar])
 
     const updateQuantity=e=>{
         e.preventDefault();
@@ -50,7 +50,7 @@ const Inventory = () => {
         setError("")
         setNumberError('')
         const newQuantity=e.target.carQuantity.value;
-        console.log(newQuantity);
+        // console.log(newQuantity);
         if(newQuantity >=0){
             
         axios.put(`http://localhost:5000/cars/${id}`, 
@@ -68,6 +68,8 @@ const Inventory = () => {
         else{
             setNumberError("Please give a valid number")
         } 
+
+        
 
         
         

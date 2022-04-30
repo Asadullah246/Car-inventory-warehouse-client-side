@@ -1,0 +1,7 @@
+.singleCar{
+    display: flex;
+}
+.singleCar img{
+    height: 40px;
+    width: auto;
+}
