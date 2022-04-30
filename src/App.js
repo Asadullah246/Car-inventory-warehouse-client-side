@@ -1,13 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import Navber from './Components/Navber/Navber';
+import Home from './Components/Home/Home';
+import Inventory from './Components/Inventory/Inventory';
+import AddItem from './AddItem/AddItem';
 
 function App() {
   return (
     <div className="App">
-      <h2>this is starting and testing</h2>
+      <Navber></Navber>
      <Routes>
-       <Route></Route>
+       <Route path='/' element={<Home></Home>}></Route>
+       <Route path='/add-item' element={<AddItem></AddItem>}></Route>
+
+       <Route path='/inventory/:id' element={<Inventory></Inventory>}></Route>
      </Routes>
     </div>
   );

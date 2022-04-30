@@ -1,0 +1,17 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar-section{
+    display: flex;
+    justify-content: space-around;
+    background-color: #8EC833;
+    padding: 7px 0;
+}
+.navbar-section a{
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px;
+}
