@@ -7,14 +7,33 @@
 .navbar-section{
     display: flex;
     justify-content: space-around;
-    background-color: #8EC833;
     padding: 7px 0;
 }
 .navbar-section a{
     text-decoration: none;
-    color: #fff;
-    margin-right: 10px;
+    transition: ease-in-out .2s ;
+    margin-right: 12px;
 }
-.signOut-btn{
-    display: inline;
+.navSiteName{
+    color: #E52D27;
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+.navSiteName span{
+    color: black;
+}
+.navbar-section a:hover{
+    color: #E52D27;
+}
+.loginButton:hover{
+    color: #c45d59;
+}
+.userButton{
+    border-radius: 100%;
+    padding: 7px 6px;
+    transition: ease-in-out .2s;
+}
+.userButton:hover{
+    background-color: #b68583;
+    color: white;
 }

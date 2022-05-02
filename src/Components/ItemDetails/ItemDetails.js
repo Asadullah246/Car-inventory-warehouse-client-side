@@ -5,14 +5,20 @@ import "./ItemDetails.css"
 
 const ItemDetails = () => {
     const [cars, setCars]=useState([]);
+    const [page, setPage]=useState(0)
+    const [count, setCount]=useState(0)
+    const [number, setNumber]=useState(5)
     const navigate=useNavigate()
     useEffect( ()=>{
-        axios.get('http://localhost:5000/cars')
-        .then(response=>setCars(response.data))
-        .then(error=>{
-            console.log(error);
+        axios.get(`http://localhost:5000/cars?page=${page}&number=${number}`)
+        .then(response=>{
+            setCars(response.data.data)
+            setCount(response.data.count)
         })
-    },[])
+        .then(error=>{
+            // console.log(error);
+        })
+    },[page, number])
 
     const handleDelete= id=>{
         // event.preventDefault();
@@ -20,7 +26,7 @@ const ItemDetails = () => {
         console.log(id); 
         axios.delete(`http://localhost:5000/cars/${id}`)
         .then(res=>{
-            console.log(res);
+            // console.log(res);
             setCars(cars.filter(car=>car._id!== id))
         })
         .then(error=>{
@@ -46,6 +52,14 @@ const ItemDetails = () => {
                     })
                 }
              </div>
+             {
+                 [...Array(Math.ceil(count/number)).keys()].map(pageNumber=><button onClick={()=>setPage(pageNumber)} className={page===pageNumber?"selected": ""} >{pageNumber +1} </button>)
+             }
+             <select name="" id="" onChange={e=>setNumber(e.target.value)}>
+                 <option value="5">5</option>
+                 <option value="10">10</option>
+                 <option value="15">15</option>
+             </select>
              <div>
                  <button onClick={()=>navigate('/add-item')}>Add New Item</button>
              </div>

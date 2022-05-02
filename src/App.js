@@ -4,11 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 import Navber from './Components/Navber/Navber';
 import Home from './Components/Home/Home';
 import Inventory from './Components/Inventory/Inventory';
-import AddItem from './AddItem/AddItem';
-import ItemDetails from './ItemDetails/ItemDetails';
+import AddItem from '../src/Components/AddItem/AddItem';
+import ItemDetails from '../src/Components/ItemDetails/ItemDetails';
 import Login from './Components/Login/Login';
 
+
 function App() {
+ 
   return (
     <div className="App">
       <Navber></Navber>

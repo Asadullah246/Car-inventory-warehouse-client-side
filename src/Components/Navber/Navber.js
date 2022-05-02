@@ -1,36 +1,44 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import "./Navber.css"
 
 const Navber = () => {
     const [user] = useAuthState(auth);
+    const navigate=useNavigate();
 
     const signOut=e=>{
         e.preventDefault();
         if(user){
-            auth.signOut()
+            if (window.confirm('You will be signed out. Are you sure?')) {
+                auth.signOut();
+                navigate('/login');
+            }
+          
+        }
+        else{
+           navigate("/login") ;
         }
     }
     console.log(user);
     return (
         <div>
             <nav className='navbar-section'>
-               <div> <Link to="/">Home</Link></div>
+               <div> <Link to="/" className='navSiteName'>CAR<span>STORAGE</span></Link></div>
              <div> 
-                   <Link to="/login">login</Link>
-                <Link to="/item">My Item</Link>
+                   {/* <Link to="/login">{user? "Sign Out": "Login"} </Link> */}
+                <Link to="/item">{user? "My Item": ""} </Link>
                 <Link to="/blogs">blogs</Link>
-                <button className='signOut-btn' onClick={signOut} >{user? "signout": "logged in"} </button>
-                <Link to="/add-item">add item</Link>
-                <Link to="/item-details">Details</Link>
-               
+                
+                <Link to="/add-item">{user?"add item": ""}</Link>
+                <Link to="/item-details">{user? "Manage Item": ""} </Link>
+                <button className={user? "bg-lime-600 text-white userButton": "loginButton"} onClick={signOut} >{user?`${user.displayName?user.displayName.slice(0, 4): "user"}` : "Login"} </button>
                 </div>
             </nav>
            
         </div>
-    );
+    ); 
 };
 
 export default Navber;
