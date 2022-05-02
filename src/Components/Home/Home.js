@@ -4,7 +4,7 @@ import banner from "../../images/audi.png"
 import icon1 from "../../images/Icons/7 (1).png"
 import icon2 from "../../images/Icons/5 (2).png"
 import icon3 from "../../images/Icons/4 (2).png"
-import icon4 from "../../images/Icons/4 (2).png"
+import icon4 from "../../images/Icons/3 (2).png"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
@@ -88,30 +88,30 @@ const Home = () => {
             </div>
             </main>
 
-            <div>
+            <div className='mb-24'>
                 <button onClick={() => navigate('/item-details')} className='manageButton'>Manage Inventory</button>
             </div>
 
-           <div className='flex justify-evenly'>
+           <div className='flex justify-evenly  text-white countSection'>
                <div>
-                   <p>{icon1} </p>
-               <CountUp end={9500}/><span>+</span>
-               <p>Total <span>Cars</span></p>
+               <img src={icon1} alt="" />
+               <CountUp className='font-semibold text-4xl'  end={9500}/><span className='font-medium text-4xl'>+</span>
+               <p className='font-medium text-xl mt-2'>Total <span className='countCar'>Cars</span></p>
                </div>
                <div>
-               <p>{icon2} </p>
-               <CountUp end={9500}/><span>+</span>
-               <p>Total <span>Cars</span></p>
+               <img src={icon2} alt="" />
+               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <p className='font-medium text-xl mt-2'>Varified <span className='countCar'>Users</span></p>
                </div>
                <div>
-               <p>{icon3} </p>
-               <CountUp end={9500}/><span>+</span>
-               <p>Total <span>Cars</span></p>
+               <img src={icon3} alt="" />
+               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <p className='font-medium text-xl mt-2'>Active <span className='countCar'>Users</span></p>
                </div>
                <div>
-               <p>{icon4} </p>
-               <CountUp end={9500}/><span>+</span>
-               <p>Total <span>Cars</span></p>
+               <img src={icon4} alt="" />
+               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <p className='font-medium text-xl mt-2'>Featured <span className='countCar'>Cars</span></p>
                </div>
            </div>
 
