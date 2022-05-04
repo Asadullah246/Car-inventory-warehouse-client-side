@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase.init';
 import "./AddItem.css"
 
 const AddItem = () => {
     const [success, setSuccess]=useState("");
     const [error, setError]=useState("")
+    const [user]=useAuthState(auth)
 
     const addItem=e=>{
         e.preventDefault();
@@ -17,7 +20,8 @@ const AddItem = () => {
             supplierName: e.target.supplierName.value,
             image: e.target.imageLink.value,
             email: e.target.email.value,
-            shortDesc: e.target.desc.value
+            shortDesc: e.target.desc.value,
+            uid: user.uid
         }
         axios.post('http://localhost:5000/newCars', data)
         .then(response=>
@@ -27,19 +31,20 @@ const AddItem = () => {
     }
     return (
         <div>
-            <div>
+            <div className='addItemFormDiv'>
+                <h1 className='font-bold text-2xl mt-6 mb-4'>ADD NEW ITEM</h1>
                 <form onSubmit={addItem} action="">
-                    <input type="text" name="name" id="" placeholder='name' /><br />
-                    <input type="number" name="price" id="" placeholder='price' /><br />
-                    <input type="number" name="quantity" id=""placeholder='quantity' /><br />
-                    <input type="text" name="supplierName" id="" placeholder='supplier name' /><br />
-                    <input type="url" name="imageLink" id="" placeholder='url' /><br />
+                    <input className='inputField pl-1 bg-orange-50' type="text" name="name" id="" placeholder='name' required /><br />
+                    <input className='inputField pl-1 bg-orange-50' type="number" name="price" id="" placeholder='price' required/><br />
+                    <input className='inputField pl-1 bg-orange-50' type="number" name="quantity" id=""placeholder='quantity' required/><br />
+                    <input className='inputField pl-1 bg-orange-50' type="text" name="supplierName" id="" placeholder='supplier name'required /><br />
+                    <input className='inputField pl-1 bg-orange-50' type="url" name="imageLink" id="" placeholder='url' required/><br />
                     {/* for temporary  */}
-                    <input type="email" name="email" id="" placeholder='email' /><br />
+                    <input className='inputField pl-1 bg-orange-50' type="email" name="email" id="" placeholder='email' required/><br />
                    
-                    <textarea id="" name="desc" placeholder='description'/>
+                    <textarea className='inputField pl-1 bg-orange-50' id="" name="desc" placeholder='description' required/>
                     <p>{success}  {error}</p> 
-                    <button>Add item</button>
+                    <button className='addButton mt-3 text-lg pt-1 pb-1'>Add item</button>
                 </form>
             </div>
         </div>

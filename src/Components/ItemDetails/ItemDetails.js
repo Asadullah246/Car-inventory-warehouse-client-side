@@ -33,6 +33,7 @@ const ItemDetails = () => {
             console.log(error);
         })
     }
+    console.log(cars);
     return (
         <div>
              <div>

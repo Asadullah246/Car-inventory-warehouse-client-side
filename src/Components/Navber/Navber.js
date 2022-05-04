@@ -27,7 +27,6 @@ const Navber = () => {
             <nav className='navbar-section'>
                <div> <Link to="/" className='navSiteName'>CAR<span>STORAGE</span></Link></div>
              <div> 
-                   {/* <Link to="/login">{user? "Sign Out": "Login"} </Link> */}
                 <Link to="/item">{user? "My Item": ""} </Link>
                 <Link to="/blogs">blogs</Link>
                 

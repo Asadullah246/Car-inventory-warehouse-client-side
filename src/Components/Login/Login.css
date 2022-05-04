@@ -1,7 +1,49 @@
+
+.loginSection{
+    background-color: #F6F6F6;
+}
+
 .regiTrue{
     display: none;
 
 }
 .regiFalse{
     display: block;
+    width: 400px;
+    
+    margin: 0 auto;
+}
+.githubButton{
+    background-color:#6E7781;
+    width: 100%;
+    padding: 5px;
+}
+.googleButton{
+    background-color: #DD4B39;
+    width: 100%;
+    padding: 5px;
+}
+.border{
+    border: 1px solid rgb(128, 93, 93);
+    width: 45%;
+}
+form{
+    text-align: start;
+}
+.inputField{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    color: black;
+    border: 1px solid rgb(48, 39, 39);
+    
+}
+#checkbox{
+   text-align: left;
+}
+
+.loginBtn{
+    background-color: #DD4B39;
+    width: 100%;
+    color: white;
 }

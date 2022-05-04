@@ -100,17 +100,17 @@ const Home = () => {
                </div>
                <div>
                <img src={icon2} alt="" />
-               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <CountUp className='font-semibold text-4xl' end={8300}/><span className='font-medium text-4xl'>+</span>
                <p className='font-medium text-xl mt-2'>Varified <span className='countCar'>Users</span></p>
                </div>
                <div>
                <img src={icon3} alt="" />
-               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <CountUp className='font-semibold text-4xl' end={9400}/><span className='font-medium text-4xl'>+</span>
                <p className='font-medium text-xl mt-2'>Active <span className='countCar'>Users</span></p>
                </div>
                <div>
                <img src={icon4} alt="" />
-               <CountUp className='font-semibold text-4xl' end={9500}/><span className='font-medium text-4xl'>+</span>
+               <CountUp className='font-semibold text-4xl' end={7800}/><span className='font-medium text-4xl'>+</span>
                <p className='font-medium text-xl mt-2'>Featured <span className='countCar'>Cars</span></p>
                </div>
            </div>

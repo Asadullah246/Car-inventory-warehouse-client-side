@@ -7,6 +7,7 @@
 .navbar-section{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 7px 0;
 }
 .navbar-section a{
