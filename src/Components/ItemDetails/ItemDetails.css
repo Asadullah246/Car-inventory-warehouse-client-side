@@ -5,3 +5,64 @@
     height: 40px;
     width: auto;
 }
+thead tr{
+    border-top-left-radius: 10px;
+    border-radius: 10px;
+}
+tr{
+    border: 1px solid #d2e0ee;
+}
+tr th{
+    background-color: #d2e0ee;
+    
+}
+tr td, tr th{
+    padding: 10px 7px;
+    text-align: left;
+}
+tr td{
+    background-color: #f2f8fd;
+
+}
+
+.tableImage{
+    width: 50px;
+
+}
+.deleteBtn{
+    background-color: #1E90FF;
+    color: white;
+    padding: 3px 13px;
+    border-radius: 5px;
+}
+.pagination{
+    margin-right: 10vw;
+    margin-top: 20px;
+}
+.pageBtn{
+    background-color: #1E90FF;
+    color: white;
+    padding: 0 5px;
+    margin: auto 3px;
+    border-radius: 5px;
+}
+select{
+    background-color: #1E90FF; 
+    color: white;
+   border-radius: 5px;
+   
+
+}
+select option{
+    color: black;
+    background-color: white;
+   margin-top: 4px;
+
+}
+.ItemAddButton{
+    background-color:#1E90FF ;
+    padding: 4px 35px;
+    color: white;
+    border-radius: 5px;
+    
+}
