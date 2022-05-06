@@ -10,7 +10,6 @@
 .regiFalse{
     display: block;
     width: 500px;
-    
     margin: 0 auto;
 }
 .githubButton{
@@ -46,4 +45,16 @@ form{
     background-color: #DD4B39;
     width: 100%;
     color: white;
+}
+
+/* media query  */
+
+@media screen and (max-width: 576px) {
+    .regiFalse{
+       
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    
 }

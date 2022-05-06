@@ -1,0 +1,28 @@
+
+.inventoryImage{
+    width:100%;
+} 
+
+.updateBtn{
+    color: white;
+    background-color: #EC4899;
+    width: 70%;
+    padding: 4px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.increaseInput{
+    background-color: #FFF7ED;
+    width: 100%;
+   
+}
+.increaseBtn{
+    color: white;
+    background-color: #EC4899;
+    width: 70%;
+    padding: 4px;
+    border-radius: 5px;
+    margin: 0 auto;
+
+}

@@ -5,96 +5,94 @@ import "./Inventory.css"
 
 const Inventory = () => {
     const [car, setCar] = useState([])
-    const [quantity, setQuantity]=useState(0)
-    const [error, setError]=useState('')
-    const [numberError, setNumberError]=useState('')
+    const [quantity, setQuantity] = useState(0)
+    const [error, setError] = useState('')
+    const [numberError, setNumberError] = useState('')
     const { id } = useParams();
     useEffect(() => {
-        axios.get(`http://localhost:5000/cars/${id}`)
+        axios.get(`https://fast-temple-34743.herokuapp.com/cars/${id}`)
             .then(response => {
                 setCar(response.data);
                 setQuantity(response.data.quantity)
-             
+
             })
-            .catch(error => {
-                console.log(error);
+            .catch(err => {
+                setError(err);
             })
     }, [id, setCar])
 
-    const updateQuantity=e=>{
+    const updateQuantity = e => {
         e.preventDefault();
         setError('')
         setNumberError('')
-        
-        if(quantity==0 ){
+
+        if (quantity == 0) {
             setError("No car remaining")
             return;
         }
 
-        
-        const number=parseInt(quantity)-1;
-        axios.put(`http://localhost:5000/cars/${id}`, 
-       {
-           quantity: number
-       }
+        const number = parseInt(quantity) - 1;
+        axios.put(`https://fast-temple-34743.herokuapp.com/cars/${id}`,
+            {
+                quantity: number
+            }
         )
-        .then(response => {
-            setQuantity(parseInt(quantity)-1)
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(response => {
+                setQuantity(parseInt(quantity) - 1)
+            })
+            .catch(err2 => {
+                setError(err2);
+            })
     }
-    const increaseQuantity=e=>{
+    const increaseQuantity = e => {
         e.preventDefault();
         setError("")
         setNumberError('')
-        const newQuantity=e.target.carQuantity.value;
-        // console.log(newQuantity);
-        if(newQuantity >=0){
-            
-        axios.put(`http://localhost:5000/cars/${id}`, 
-       {
-           quantity: newQuantity
-       }
-        )
-        .then(response => {
-            setQuantity(newQuantity)
-        })
-        .catch(error => {
-            console.log(error);
-        })
-        } 
-        else{
+        const newQuantity = e.target.carQuantity.value;
+        if (newQuantity >= 0) {
+
+            axios.put(`https://fast-temple-34743.herokuapp.com/cars/${id}`,
+                {
+                    quantity: newQuantity
+                }
+            )
+                .then(response => {
+                    setQuantity(newQuantity)
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+        else {
             setNumberError("Please give a valid number")
-        } 
+        }
 
-        
 
-        
-        
+
+
+
     }
-  
+
     return (
         <div>
 
-            <div>
-                <h5>Name : {car.name} </h5>
-                <img src={car.image} alt="" />
-                <h5>Price : {car.price}$ </h5>
-                <h5>Quantity : {quantity} </h5>
-                <h5>Supplier Name : {car.supplierName} </h5>
-                <h5>Description : {car.shortDesc} </h5>
-                <p>{error} </p>
-                <button onClick={updateQuantity}>update</button> 
-            </div>
-            <div>
-                <form onSubmit={increaseQuantity} action="">
-                    <input type="number" name="carQuantity" id="" /><br />
+            <div className='w-2/4 mx-auto mb-32'>
+                <img className='inventoryImage w-100 mt-32 mx-auto' src={car.image} alt="" />
+                <h2 className='text-2xl mt-8 mb-4 text-left font-bold'>Name : {car.name} </h2>
+                <p className='text-left font-semibold text-lg'>Price : {car.price}$ </p>
+                <p className='text-left font-semibold text-lg'>Quantity : {quantity} </p>
+                <p className='text-left font-semibold text-lg'>Supplier Name : {car.supplierName} </p>
+                <p className='text-left font-semibold text-lg'>Description : {car.shortDesc} </p>
+                <p className='text-left font-semibold text-xs'>{error} </p>
+                <button onClick={updateQuantity} className="updateBtn text-lg font-bold">update</button>
+
+                <form className='w-100' onSubmit={increaseQuantity} action="">
+                    <input className='increaseInput block w-100 p-2 mt-12' type="number" name="carQuantity" id="" placeholder='Enter quantity' /><br />
                     <p>{numberError} </p>
-                    <button>submit</button>
+                    <button className='increaseBtn block text-lg font-bold'>submit</button>
                 </form>
             </div>
+
 
 
         </div>

@@ -66,3 +66,15 @@ select option{
     border-radius: 5px;
     
 }
+
+/* media query  */
+
+@media screen and (max-width: 600px){
+    .desc{
+        display: none;
+    }
+    .itemPrice{
+        padding-right: 0;
+    }
+    
+}

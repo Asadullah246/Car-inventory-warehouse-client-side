@@ -1,0 +1,12 @@
+
+.oops{
+    color: #FF585F;
+}
+.notFoundBtn{
+    background-color: #FF585F;
+    color: #fff;
+    border: none;
+    padding: 6px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+}

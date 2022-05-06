@@ -19,13 +19,15 @@ const AddItem = () => {
             quantity: e.target.quantity.value,
             supplierName: e.target.supplierName.value,
             image: e.target.imageLink.value,
-            email: e.target.email.value,
             shortDesc: e.target.desc.value,
             uid: user.uid
         }
-        axios.post('http://localhost:5000/newCars', data)
-        .then(response=>
-            setSuccess("successfully added"))
+        axios.post('https://fast-temple-34743.herokuapp.com/newCars', data)
+        .then(response=>{
+            setSuccess("successfully added")
+            e.target.reset()
+        }
+           )
         .then(error=>setError(error?.message))
 
     }
@@ -39,11 +41,8 @@ const AddItem = () => {
                     <input className='inputField pl-1 bg-orange-50' type="number" name="quantity" id=""placeholder='quantity' required/><br />
                     <input className='inputField pl-1 bg-orange-50' type="text" name="supplierName" id="" placeholder='supplier name'required /><br />
                     <input className='inputField pl-1 bg-orange-50' type="url" name="imageLink" id="" placeholder='url' required/><br />
-                    {/* for temporary  */}
-                    <input className='inputField pl-1 bg-orange-50' type="email" name="email" id="" placeholder='email' required/><br />
-                   
                     <textarea className='inputField pl-1 bg-orange-50' id="" name="desc" placeholder='description' required/>
-                    <p>{success}  {error}</p> 
+                    <p>{error? error: success}</p> 
                     <button className='addButton mt-3 text-lg pt-1 pb-1'>Add item</button>
                 </form>
             </div>
