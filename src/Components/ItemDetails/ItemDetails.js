@@ -10,14 +10,17 @@ const ItemDetails = () => {
     const [number, setNumber] = useState(5)
     const [error, setError]=useState("")
     const navigate = useNavigate()
+    const [loading, setLoading]=useState("Loading data...")
     useEffect(() => {
         axios.get(`https://fast-temple-34743.herokuapp.com/cars?page=${page}&number=${number}`)
             .then(response => {
                 setCars(response.data.data)
                 setCount(response.data.count)
+                setLoading("")
             })
             .then(err => {
                setError(err) 
+               setLoading("")
             })
     }, [page, number])
 
@@ -35,6 +38,9 @@ const ItemDetails = () => {
     return (
         <div>
             <h1 className='text-center font-bold text-2xl mt-6'>MANAGE ALL ITEMS</h1>
+
+            <p className='mt-8 mb-8 text-xl font-bold text-blue-600'>{loading} </p>
+
 
             <p className='mt-12 mb-12'>{error} </p>
             <table className='table-auto mx-auto mt-8 w-11/12'>

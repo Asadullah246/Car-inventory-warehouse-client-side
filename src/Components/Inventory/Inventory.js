@@ -9,15 +9,18 @@ const Inventory = () => {
     const [error, setError] = useState('')
     const [numberError, setNumberError] = useState('')
     const { id } = useParams();
+    const [loading, setLoading]=useState("Loading data...")
     useEffect(() => {
         axios.get(`https://fast-temple-34743.herokuapp.com/cars/${id}`)
             .then(response => {
                 setCar(response.data);
                 setQuantity(response.data.quantity)
+                setLoading("")
 
             })
             .catch(err => {
                 setError(err);
+                setLoading("")
             })
     }, [id, setCar])
 
@@ -75,6 +78,7 @@ const Inventory = () => {
 
     return (
         <div>
+              <p className='mt-8 mb-8 text-xl font-bold text-blue-600'>{loading} </p>
 
             <div className='w-2/4 mx-auto mb-32'>
                 <img className='inventoryImage w-100 mt-32 mx-auto' src={car.image} alt="" />

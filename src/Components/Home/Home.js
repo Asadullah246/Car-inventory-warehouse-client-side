@@ -21,6 +21,7 @@ import CountUp from 'react-countup';
 
 const Home = () => {
     const [cars, setCars] = useState([]);
+    const [loading, setLoading]=useState("Loading data...")
 
     // aos usage 
     useEffect(() => {
@@ -32,6 +33,7 @@ const Home = () => {
         axios.get('https://fast-temple-34743.herokuapp.com/someCars?limit=6')
             .then(response => {
                 setCars(response.data)
+                setLoading("")
             })
     }, [])
     const navigate = useNavigate();
@@ -61,7 +63,7 @@ const Home = () => {
             <main className='container w-10/12 m-auto'>
 
                 <div className='text-2xl font-extrabold mt-12 mb-2  text-left'><h2 className='featureHeading'>LATEST <span className='featured'>FEATURED</span> CARS</h2></div>
-
+                <p className='mt-8 mb-8 text-xl font-bold text-blue-600'>{loading} </p>
 
                 <div className='cars'>
                     {

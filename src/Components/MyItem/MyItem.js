@@ -12,10 +12,12 @@ const MyItem = () => {
     const [error, setError] = useState("")
     const[deleteError, setDeleteError]=useState("")
     const navigate=useNavigate()
+    const [loading2, setLoading2]=useState("Loading data...")
+
 
     useEffect(() => {
         if (loading) {
-            return <Loading></Loading>
+            <Loading></Loading>
         }
     }, [loading])
     let userToken = localStorage.getItem("accessToken")
@@ -31,9 +33,11 @@ const MyItem = () => {
             .then(response => {
                 if (response.data.success) {
                     setError(" ERROR 403 : No data found")
+                    setLoading2("")
                 }
                 else if (response.data.error) {
                     setError(" ERROR 401: Unauthorized access")
+                    setLoading2("")
                     auth.signOut()
                     navigate("/login")
                     window.alert("You are not authorized to access this page")
@@ -41,14 +45,16 @@ const MyItem = () => {
                 else {
                     setMycars(response.data)
                     setError("")
+                    setLoading2("")
                 }
 
             })
             .catch(err => {
                 setError(err);
+                setLoading2("")
             })
 
-    }, [user.uid, user.email, userToken])
+    }, [user.uid, user.email, userToken, navigate])
 
     const handleDelete = id => {
         if(window.confirm("Are you sure you want to delete this item?")){
@@ -72,6 +78,7 @@ const MyItem = () => {
             <div className=' mt-24 mb-20'>
                 <h2 className='font-bold text-3xl'>ALL MY ITEMS</h2>
             </div>
+            <p className='mt-8 mb-8 text-xl font-bold text-blue-600'>{loading2} </p>
             <p className='font-bold text-3xl text-red-500 mt-30 mb-20'>{error} </p>
             <p className='font-bold text-3xl text-red-500 mt-30 mb-20'>{deleteError} </p>
 
