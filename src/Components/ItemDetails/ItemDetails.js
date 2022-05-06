@@ -31,7 +31,7 @@ const ItemDetails = () => {
                 setCars(cars.filter(car => car._id !== id))
             })
             .then(err2 => {
-                setError(err2.message)
+                setError(err2)
             })
     }
 

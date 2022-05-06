@@ -59,7 +59,7 @@ const Login = () => {
                     navigate(from, { replace: true });
                 })
               .catch(function (err) {
-                setTokenError(err.message)
+                setTokenError(err)
               });   
         }
     },[from, navigate,user])

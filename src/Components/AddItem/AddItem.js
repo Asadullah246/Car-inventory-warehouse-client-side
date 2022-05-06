@@ -28,7 +28,7 @@ const AddItem = () => {
             e.target.reset()
         }
            )
-        .then(error=>setError(error?.message))
+        .then(err=>setError(err))
 
     }
     return (

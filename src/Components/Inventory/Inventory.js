@@ -62,17 +62,13 @@ const Inventory = () => {
                 .then(response => {
                     setQuantity(newQuantity)
                 })
-                .catch(error => {
-                    console.log(error);
+                .catch(err3 => {
+                    setNumberError(err3);
                 })
         }
         else {
             setNumberError("Please give a valid number")
         }
-
-
-
-
 
     }
 
