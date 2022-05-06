@@ -167,23 +167,25 @@ const Home = () => {
                         <h4 className='font-bold mb-2'> <span className='carText'>CAR</span>STORAGE</h4>
                         <p>We are careful about you. Be connected with us </p>
                         <div className='flex storeDiv mt-4'>
-                            <Link to="/"className='mr-4'><img className='mr-2' src={googleLogo} alt="" /></Link>
-                            <Link to="/"><img src={appleLogo} alt="" /></Link>
+                            <a href="https://google.com/" target="_blank" className='mr-4'><img className='mr-2' src={googleLogo} alt="" /></a>
+                            <a href="https://www.apple.com/" target="_blank"><img src={appleLogo} alt="" /></a>
                         </div>
                     </div>
                     <div  className='socialIcons pl-6 pr-6'>
                         <h4 className='text-lg font-semibold mb-2'>Follow Us</h4>
                         <div className='flex'>
                             <img src={facebook} alt="" />
-                            <Link to="/">Facebook</Link>
+                            <a href="https://web.facebook.com/" target="_blank" className='pl-2'>Facebook</a>
                         </div>
                         <div className='flex'>
                             <img src={twitter} alt="" />
-                            <Link to="/">Twitter</Link>
+                            <a href="https://twitter.com/?lang=en" target="_blank" className='pl-2'>Twitter</a>
+                            
                         </div>
                         <div className='flex'>
                             <img src={linkedin} alt="" />
-                            <Link to="/">Linkedin</Link>
+                            <a href="https://www.linkedin.com/" target="_blank" className='pl-2'>Linkedin</a>
+                           
                         </div>
 
                     </div>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import "./AddItem.css"
 
@@ -8,7 +9,7 @@ const AddItem = () => {
     const [success, setSuccess]=useState("");
     const [error, setError]=useState("")
     const [user]=useAuthState(auth)
-    console.log(user);
+    const navigate=useNavigate()
 
     const addItem=e=>{
         e.preventDefault();  
@@ -33,6 +34,9 @@ const AddItem = () => {
         .then(err=>setError(err))
 
     }
+    const goToManageItem=()=>{
+        navigate("/item-details")
+    }
     return (
         <div>
             <div className='addItemFormDiv'>
@@ -47,7 +51,10 @@ const AddItem = () => {
                     <p>{error? error: success}</p> 
                     <button className='addButton mt-3 text-lg pt-1 pb-1'>Add item</button>
                 </form>
+                <button className='addButton mt-6 text-lg pt-1 pb-1 ' onClick={goToManageItem}>Manage items</button>
+
             </div>
+            
         </div>
     );
 };
