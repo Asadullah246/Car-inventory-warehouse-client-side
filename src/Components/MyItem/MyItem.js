@@ -22,8 +22,9 @@ const MyItem = () => {
     }, [loading])
     let userToken = localStorage.getItem("accessToken")
     useEffect(() => {
+        // /${user.uid}
 
-        axios.get(`https://fast-temple-34743.herokuapp.com/mycars/${user.uid}`,
+        axios.get(`https://fast-temple-34743.herokuapp.com/mycars`,
             {
                 headers: {
                     email: user.email,

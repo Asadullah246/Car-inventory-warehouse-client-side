@@ -8,6 +8,7 @@ const AddItem = () => {
     const [success, setSuccess]=useState("");
     const [error, setError]=useState("")
     const [user]=useAuthState(auth)
+    console.log(user);
 
     const addItem=e=>{
         e.preventDefault();  
@@ -18,9 +19,10 @@ const AddItem = () => {
             price: e.target.price.value,
             quantity: e.target.quantity.value,
             supplierName: e.target.supplierName.value,
+            email: user.email,
             image: e.target.imageLink.value,
             shortDesc: e.target.desc.value,
-            uid: user.uid
+            
         }
         axios.post('https://fast-temple-34743.herokuapp.com/newCars', data)
         .then(response=>{
