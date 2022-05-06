@@ -10,9 +10,9 @@ const AddItem = () => {
     const [user]=useAuthState(auth)
 
     const addItem=e=>{
-        e.preventDefault();
+        e.preventDefault();  
+        setSuccess("Adding item...")    
         setError('')
-        setSuccess("")
         const data={
             name: e.target.name.value,
             price: e.target.price.value,

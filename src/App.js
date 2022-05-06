@@ -10,14 +10,11 @@ import Login from './Components/Login/Login';
 import Blogs from './Components/Blogs/Blogs';
 import NotFound from './Components/NotFound/NotFound';
 import MyItem from './Components/MyItem/MyItem';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './Firebase.init';
 import RequireAuth from './Components/RequiredAuth/RequireAuth';
 import Loading from './Components/Loading';
 
 
 function App() {
-  // const [user]=useAuthState(auth)
  
   return (
     <div className="App">

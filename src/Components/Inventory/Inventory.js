@@ -26,7 +26,7 @@ const Inventory = () => {
 
     const updateQuantity = e => {
         e.preventDefault();
-        setError('')
+        setError('updating...')
         setNumberError('')
 
         if (quantity == 0) {
@@ -42,6 +42,7 @@ const Inventory = () => {
         )
             .then(response => {
                 setQuantity(parseInt(quantity) - 1)
+                setError("")
             })
             .catch(err2 => {
                 setError(err2);
@@ -50,7 +51,7 @@ const Inventory = () => {
     const increaseQuantity = e => {
         e.preventDefault();
         setError("")
-        setNumberError('')
+        setNumberError('increasing...')
         const newQuantity = e.target.carQuantity.value;
         if (newQuantity >= 0) {
 
@@ -61,6 +62,7 @@ const Inventory = () => {
             )
                 .then(response => {
                     setQuantity(newQuantity)
+                    setNumberError('')
                 })
                 .catch(err3 => {
                     setNumberError(err3);

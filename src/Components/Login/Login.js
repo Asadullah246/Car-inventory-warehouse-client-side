@@ -91,10 +91,11 @@ const Login = () => {
     }
 
    },[signInLoading])
+
     const handleLogin = e => {
         e.preventDefault();
         setError("")
-        setSuccess("")
+        setSuccess("logging in...")
         const userEmail = e.target.email.value;
         const password = e.target.password.value;
         signInWithEmailAndPassword(userEmail, password);
@@ -123,17 +124,19 @@ const Login = () => {
     const register = async (e) => {
         e.preventDefault()
         setError("")
-        setSuccess("")
+        setSuccess(" registering...")
         const name = e.target.name.value;
         const userEmail = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
         if (password !== confirmPassword) {
             setError("Password does not match");
+            setSuccess("")
             return;
         }
         if (password.length < 6) {
             setError("Password must be at least 6 characters");
+            setSuccess("")
             return;
         }
         await createUserWithEmailAndPassword(userEmail, password);
@@ -209,7 +212,7 @@ const Login = () => {
                     <input className='inputField pl-1 bg-orange-50' type="email" name="email" id="" placeholder='email' required /><br />
                     <input className='inputField pl-1 bg-orange-50' type="password" name="password" id="" placeholder='password' required /><br />
                     <input className='inputField pl-1 bg-orange-50' type="password" name="confirmPassword" id="" placeholder='confirm password' required /><br />
-                    <p className='mt-2 mb-2'>{error} {success} </p>
+                    <p className='mt-2 mb-2'>{error? error:success} </p>
                     <button className="block loginBtn mt-4 mb-4" value='register'>Register</button>
                 </form>
                 <p className='text-left'>Already have an account ? <button className='font-bold text-blue-500' onClick={() => setOpenRegi(false)}>Login</button></p>
