@@ -1,7 +1,7 @@
 # website name : CARSTORAGE 
 ### CARSTORAGE is a website that allows you to store your cars in a database.It is safe and free web app where you can store your cars in database. Besides that, there have many other features like login, register, update, delete, etc. You will get many kind of services from this website.
 
-### live link : https://car-inventory-7c113.firebaseapp.com/
+### live link :https://car-inventory-7c113.web.app/
 
 ## About the website:
 * this is a website to store cars in a database.
